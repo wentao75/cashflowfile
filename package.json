@@ -1,0 +1,51 @@
+{
+    "name": "cashflowfile",
+    "version": "0.0.1",
+    "author": "Wen Tao",
+    "bin": {
+        "cashflowfile": "./bin/run"
+    },
+    "bugs": "https://github.com/wentao75/cashflowfile/issues",
+    "dependencies": {
+        "@oclif/command": "^1",
+        "@oclif/config": "^1",
+        "@oclif/plugin-help": "^3",
+        "fast-csv": "^4.3.1",
+        "lodash": "^4.17.15"
+    },
+    "devDependencies": {
+        "@oclif/dev-cli": "^1",
+        "@oclif/test": "^1",
+        "chai": "^4",
+        "eslint": "^5.13",
+        "eslint-config-oclif": "^3.1",
+        "mocha": "^5",
+        "nyc": "^14"
+    },
+    "engines": {
+        "node": ">=10.1.0"
+    },
+    "files": [
+        "/bin",
+        "/src"
+    ],
+    "homepage": "https://github.com/wentao75/cashflowfile",
+    "keywords": [
+        "oclif"
+    ],
+    "license": "MIT",
+    "main": "src/index.js",
+    "oclif": {
+        "bin": "cashflowfile"
+    },
+    "repository": "wentao75/cashflowfile",
+    "scripts": {
+        "posttest": "eslint .",
+        "prepack": "oclif-dev readme",
+        "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
+        "version": "oclif-dev readme && git add README.md"
+    },
+    "prettier": {
+        "tabWidth": 4
+    }
+}
