@@ -72,42 +72,42 @@ class CashflowfileCommand extends Command {
             //     undefined,
             // ],
             // 中建
-            // headers: [
-            //     "commission",
-            //     "sales",
-            //     "customer",
-            //     "project",
-            //     undefined, // "transaction",
-            //     undefined,
-            //     "transactionDate",
-            //     "writeOffAmount", // "结算金额",
-            //     "deadline", // "回款止日"
-            //     undefined, // "核销日期",
-            //     "loan", // "客户需求金额",
-            //     "returnDate",
-            //     undefined,
-            //     undefined,
-            // ],
-            // 欧飞
             headers: [
+                "commission",
+                "sales",
                 "customer",
                 "project",
-                "period",
-                "sales",
-                "department",
-                "loan",
-                "loanDate",
-                undefined, // "客户需求金额",
-                "transactionDate",
-                undefined, // "资金余额"",
-                "returnDate",
-                "writeOffAmount", // "核销金额",
+                undefined, // "transaction",
+                undefined,
+                "loanDate", // 完成时间
+                "writeOffAmount", // "结算金额",
+                "deadline", // "回款止日"
                 undefined, // "核销日期",
-                undefined, // "回款周期",
-                undefined, // "识别码",
-                undefined, // "采购商品",
-                undefined, // "面值",
+                "loan", // "客户需求金额",
+                "returnDate",
+                undefined,
+                undefined,
             ],
+            // 欧飞
+            // headers: [
+            //     "customer",
+            //     "project",
+            //     "period",
+            //     "sales",
+            //     "department",
+            //     "loan",
+            //     "loanDate",
+            //     undefined, // "客户需求金额",
+            //     "transactionDate",
+            //     undefined, // "资金余额"",
+            //     "returnDate",
+            //     "writeOffAmount", // "核销金额",
+            //     undefined, // "核销日期",
+            //     undefined, // "回款周期",
+            //     undefined, // "识别码",
+            //     undefined, // "采购商品",
+            //     undefined, // "面值",
+            // ],
             renameHeaders: true,
             // ignoreEmpty: true,
         };
@@ -116,7 +116,7 @@ class CashflowfileCommand extends Command {
             .pipe(csv.parse(options))
             .transform((data) => {
                 // this.log("before: %o", data);
-                data.pool = "欧飞"; // "中建"; // "众贡"; // "华瑞";
+                data.pool = "中建"; // "欧飞"; // "众贡"; // "华瑞";
                 data.period = _.parseInt(data.period);
                 data.loan = _.toNumber(_.trim(_.replace(data.loan, /,/g, "")));
                 data.loanDate = _.trim(data.loanDate);
