@@ -11,7 +11,7 @@
         "@oclif/config": "^1",
         "@oclif/plugin-help": "^3",
         "fast-csv": "^4.3.1",
-        "lodash": "^4.17.15"
+        "lodash": "^4.17.19"
     },
     "devDependencies": {
         "@oclif/dev-cli": "^1",
